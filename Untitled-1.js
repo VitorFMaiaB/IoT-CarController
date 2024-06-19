@@ -1,4 +1,5 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const mongoose = require('mongoose');
 const uri = "mongodb+srv://vitorfmb:vibaryje7@cluster0.ukubamg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -20,4 +21,16 @@ async function run() {
     await client.close();
   }
 }
-run().catch(console.dir);
+async function main() {
+    run().catch(console.dir);
+    const schemaDados = new mongoose.Schema({
+        velAtual: double,
+        acelAtual: double,
+        posiAtual: double,
+        dirAtual: char
+
+      });
+    const Data = mongoose.model(1.5, 2.4, 123.45, N, schemaDados);
+  
+    // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+  }   
